@@ -2,9 +2,6 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
-const axios = require('axios');
-
-axios.defaults.adapter = require('axios/lib/adapters/http');
 
 const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITE_TEST_BUILD;
 const isProduction = process.env.NODE_ENV === 'production';
@@ -55,13 +52,13 @@ async function createServer(root = process.cwd(), isProd = isProduction) {
 
       const [appHtml, state, links] = await render(url, manifest);
 
-      let html = template.replace(`<!--preload-links-->`, links)
-      .replace(`'<vuex-state>'`, JSON.stringify(state))
-      .replace(`<!--app-html-->`, appHtml);
-
+      let html = template
+        .replace(`<!--preload-links-->`, links)
+        .replace(`'<vuex-state>'`, JSON.stringify(state))
+        .replace(`<!--app-html-->`, appHtml);
 
       try {
-        state && state.route && (html = html.replace('_Title_', state.route.meta.title|| '首页')) 
+        state && state.route && (html = html.replace('_Title_', state.route.meta.title || '首页'));
       } catch (error) {
         console.log(error);
       }

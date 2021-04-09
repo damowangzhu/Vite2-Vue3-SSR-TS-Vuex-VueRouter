@@ -1,5 +1,5 @@
 <template>
-  <p>About Page</p>
+  <p class="about">About Page</p>
   <p>{{ mess }}</p>
   <Foo />
 </template>
@@ -20,3 +20,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped lang="scss">
+.about {
+  color: red;
+}
+</style>

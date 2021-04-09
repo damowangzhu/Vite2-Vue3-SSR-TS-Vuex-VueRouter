@@ -1,8 +1,8 @@
 <template>
-  <div class="logo">
-    <router-link :to="{ name: 'home' }"> Home | </router-link>
-    <router-link :to="{ name: 'about' }"> About |</router-link>
-    <router-link :to="{ name: 'test' }"> Test </router-link>
+  <div class="page">
+    <router-link to="/home"> Home | </router-link>
+    <router-link to="/about"> About |</router-link>
+    <router-link to="/test"> Test </router-link>
 
     <router-view v-slot="{ Component }">
       <Suspense>
@@ -12,23 +12,10 @@
   </div>
 </template>
 
-<script lang="ts">
-// import '@/scss/common.scss';
-export default {};
-</script>
 <style>
-.logo {
+.page {
+  padding-top: 25px;
+  min-height: 100vh;
   text-align: center;
-}
-.container {
-  padding: 10px 0;
-}
-nav {
-  width: 500px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 20px 0;
-  border-radius: 4px;
 }
 </style>

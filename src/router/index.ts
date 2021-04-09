@@ -26,6 +26,14 @@ export default function () {
         meta: {
           title: 'about title'
         }
+      },
+      {
+        path: '/:catchAll(.*)*',
+        name: '404',
+        component: () => import('@/components/NotFound.vue'),
+        meta: {
+          title: '404 Not Found'
+        }
       }
     ]
   });
