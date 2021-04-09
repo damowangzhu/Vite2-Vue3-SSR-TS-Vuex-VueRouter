@@ -16,7 +16,7 @@
 // import '@/scss/common.scss';
 export default {};
 </script>
-<style scoped>
+<style>
 .logo {
   text-align: center;
 }
